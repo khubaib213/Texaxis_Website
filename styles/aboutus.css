@@ -1,0 +1,194 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+.headercontainer {
+    display: flex; 
+    align-items: flex-end;
+    background-color: rgb(255, 255, 255);
+}
+.headerline
+{
+    border: none;
+    border-top: 0.1px solid rgb(0, 0, 0);
+    width: 99%;
+    margin: auto;
+}    
+.navbar {
+    display: flex;
+    align-items: center; /* Ensures vertical alignment */
+    gap: 40px; /* Even spacing between all items */
+    margin-left: auto; 
+    margin-right: 10px;
+}
+.navbar .aboutus {
+    background-color: black;
+    color: white;
+    border: 2px solid black;
+}
+.navbar a {
+    text-decoration: none;
+    color: black;
+    font-size: small;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 5px 12px; /* Adds equal spacing for all items */
+    border-radius: 1.3px;
+}
+.logocontainer{
+    display: inline-block;  
+    margin: 0;
+    padding: 0;     
+    margin-top: 20px;
+    margin-left: 30px;  
+    margin-bottom: 10px;     
+    background: none
+}
+.logocontainer img{
+    display: block;       
+    height: 67px;
+    width: auto;
+}
+hr {
+    border: none;
+    height: 0.00001px; 
+    background-color: black;
+    margin: 0;
+}
+
+.AboutUs {
+    display: flex;                  
+    justify-content: space-between; 
+    align-items: flex-start;         
+    gap: 100px;                      
+    width: 80%;                     
+    margin: 0 auto;                 
+    padding: 40px 0;
+}
+.AboutUs h4
+{
+    margin-bottom: 20px;
+}
+.textaboutus p {
+    flex: 1;                     
+    line-height: 1.6;
+    text-align: justify; 
+    margin-top: 0px; 
+    font-family: Arial, Helvetica, sans-serif;       
+}
+
+.AboutUs img {
+    flex: 1;                       
+    max-width: 40%;
+    height: auto;
+    border-radius: 10px;           
+}
+
+
+/*footer*/
+
+footer{
+        background-color:#007CDB;
+}
+.footercontainer1
+{
+    margin-top: 30px;
+    margin-left: 25px;
+    margin-right: 25px;
+    display: flex;
+    justify-content: space-around;
+}
+footer h3{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+footer h4{
+    font-family: Arial, Helvetica, sans-serif;
+    color: aliceblue;
+}
+footer a{
+    text-decoration: none;
+    color: azure;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.Phone
+{
+    display: flex;
+    align-items: center;
+}
+.Phone small{
+    margin-left: 10px;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.Phone img
+{
+ height: 20PX;
+ width: auto; 
+}
+.location
+{
+    margin-top: 15px;
+    display: flex;
+    align-items: center; 
+}
+.location small{
+    margin-left: 10px;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.location img
+{
+    height: 30px;
+    width: auto;   
+}
+.footercontainer1 h3
+{
+    margin-bottom: 15px;
+    margin-top: 30px;
+}
+.footercontainer2 h2
+{
+    text-align: center;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: larger;
+    font-weight:300;
+    padding: 10px;
+}
+.hrline
+{
+    border: none;
+    border-top: 0.1px solid white;
+    width: 90%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+
+}
+.company
+{
+    background-color: black;
+    text-align: center;
+}
+.companycontainer
+{
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+    font-weight:lighter;
+}
+
+
+.socialsimgcontainer {
+    display: flex;
+    justify-content: center;  /* Centers icons together */
+    align-items: center;
+    gap: 15px;                /* Controls spacing between each icon */
+}
+
+.socialsimgcontainer img {
+    display: block;
+    height: 30px;
+    width: auto;
+}
