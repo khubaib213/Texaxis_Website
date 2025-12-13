@@ -3,126 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TEXAXIS - Leading supplier of high-quality textile processing chemicals and enzymes in Pakistan. Serving Lahore, Faisalabad, and Karachi.">
+    <meta name="keywords" content="textile chemicals, textile enzymes, textile processing, Pakistan textile industry, TEXAXIS">
+    <meta name="author" content="TEXAXIS (SMC-PRIVATE) LIMITED">
+    <title>TEXAXIS - Textile Processing Chemicals & Enzymes | Home</title>
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 
 <body>
-    <div class="header">
+    <!-- Header Section -->
+    <header class="header">
         <div class="headercontainer">
-            <div class="logocontainer"><img src="./images/texaxis.png" alt=""></div>
-            <div class="navbar">
-                <a class="home" href="index.html">HOME</a>
+            <div class="logocontainer">
+                <a href="index.html" aria-label="TEXAXIS Home">
+                    <img src="./images/texaxis.png" alt="TEXAXIS Company Logo">
+                </a>
+            </div>
+            <nav class="navbar" aria-label="Main navigation">
+                <a class="home active" href="index.html">HOME</a>
                 <a class="aboutus" href="aboutus.html">ABOUT US</a>
                 <a class="products" href="products.html">PRODUCTS</a>
-                <a class="contact" href="#">CONTACT</a>
+                <a class="contact" href="contact.html">CONTACT</a>
+            </nav>
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <hr class="headerline">
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" aria-label="Welcome to TEXAXIS">
+        <div class="hero-slider">
+            <div class="hero-slide hero-slide-1 active">
+                <img src="./images/image1.jpg" alt="Textile Manufacturing Process" loading="eager">
+            </div>
+            <div class="hero-slide hero-slide-2">
+                <img src="./images/image2.jpg" alt="Quality Textile Chemicals" loading="lazy">
+            </div>
+            <div class="hero-slide hero-slide-3">
+                <img src="./images/image3.png" alt="Professional Textile Solutions" loading="lazy">
             </div>
         </div>
-        <hr class="headerline" >
-    </div>
-    <hr>
-
-
-
-
-    <div class="slides">
-        <div class="slide slide-1">
-            <img src="./images/image1.jpg" alt="">
-        </div>
-        <div class="slide slide-2">
-            <img src="./images/image2.jpg" alt="">
-        </div>
-        <div class="slide slide-3">
-            <img src="./images/image3.png" alt="">
-        </div>
-    </div>
-
-
-
-    <div class="partners">
-    <h1>Co-Partners</h1>
-
-    <div class="partnerscontainer">
-        <a href="https://alfakimya.com/en/home/" target="_blank">
-            <div class="alfakimya">
-                <div class="image"><img src="./images/alfakimya.png" alt=""></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Quality Textile Processing Solutions</h1>
+            <p class="hero-subtitle">Leading supplier of premium chemicals and enzymes for Pakistan's textile industry</p>
+            <div class="hero-buttons">
+                <a href="products.html" class="btn btn-primary">Explore Products</a>
+                <a href="contact.html" class="btn btn-secondary">Contact Us</a>
             </div>
-        </a>
+        </div>
+        <div class="hero-indicators">
+            <button class="indicator active" aria-label="Slide 1" data-slide="0"></button>
+            <button class="indicator" aria-label="Slide 2" data-slide="1"></button>
+            <button class="indicator" aria-label="Slide 3" data-slide="2"></button>
+        </div>
+    </section>
 
-        <a href="https://lonct-enzyme.com/" target="_blank">
-            <div class="lonct">
-                <div class="image"><img src="./images/lonct.png" alt=""></div>
-            </div>
-        </a>
+    <!-- Partners Section -->
+    <section class="partners">
+        <h2 class="section-title">Our Trusted Partners</h2>
+        <div class="partnerscontainer">
+            <a href="https://alfakimya.com/en/home/" target="_blank" rel="noopener noreferrer" class="partner-link" aria-label="Visit Alfa Kimya website">
+                <div class="alfakimya partner-card">
+                    <img src="./images/alfakimya.png" alt="Alfa Kimya - Partner Logo" loading="lazy">
+                </div>
+            </a>
+            <a href="https://lonct-enzyme.com/" target="_blank" rel="noopener noreferrer" class="partner-link" aria-label="Visit Lonct Enzyme website">
+                <div class="lonct partner-card">
+                    <img src="./images/lonct.png" alt="Lonct Enzyme - Partner Logo" loading="lazy">
+                </div>
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer" class="partner-link" aria-label="Visit Ansen website">
+                <div class="ansen partner-card">
+                    <img src="./images/ansen.png" alt="Ansen - Partner Logo" loading="lazy">
+                </div>
+            </a>
+        </div>
+    </section>
 
-        <a href="#" target="_blank">
-            <div class="ansen">
-                <div class="image"><img src="./images/ansen.png" alt=""></div>
-            </div>
-        </a>
-    </div>
-</div>
-
-
-    <div class="AboutUs">
+    <!-- About Us Section -->
+    <section class="AboutUs">
         <div class="textaboutus">
-            <h4 style="font-family: Arial, Helvetica, sans-serif;font-weight: 400;font-weight: 500;">TEXAXIS (SMC-PRIVATE) LIMITED</h4>
-            <h1 style="font-family: Arial, Helvetica, sans-serif;font-weight: bolder;">About Us</h1>
-             <p>TEXAXIS is a forward-thinking trading company of textile processing chemicals and enzymes in all textiles sector in Pakistan.We specialize in supplying high-quality textile processing chemicals to the textile industry. Key founders of this this company is a highly experienced and technical professional with18 years of experience in textile processing and sales of textile enzymes and auxiliaries in all over Pakistan. With our head office strategically located in Lahore and additional offices in Faisalabad and Karachi, we ensure comprehensive service coverage across major industrial hubs in Pakistan.</p>
+            <h3 class="company-subtitle">TEXAXIS (SMC-PRIVATE) LIMITED</h3>
+            <h2 class="section-title">About Us</h2>
+            <p>TEXAXIS is a forward-thinking trading company specializing in textile processing chemicals and enzymes across all textile sectors in Pakistan. We supply high-quality textile processing chemicals to the textile industry. Our key founders are highly experienced technical professionals with 18 years of experience in textile processing and sales of textile enzymes and auxiliaries throughout Pakistan.</p>
+            <p>With our head office strategically located in Lahore and additional offices in Faisalabad and Karachi, we ensure comprehensive service coverage across major industrial hubs in Pakistan.</p>
+            <a href="aboutus.html" class="btn btn-primary">Learn More</a>
         </div>
-            <img src="./images/aboutus.jpg" alt="">
-    </div>
-    <div class="content2"></div>
-    <div class="content3"></div>
-
-
-
-
-
-
-
-</body>
-
-
-
-
-
-<footer>
-
-        <div class="footercontainer1">
-            <div class="Products">
-                <h3>Products</h3>
-                <h4>
-                    Product 1<br>Product 2<br>Product 3<br>Product 4
-                </h4>
-            </div>
-            <div class="quick links"><h3>Qucik Links</h3>
-                <a href="#">HOME</a><br>
-                <a href="#">About Us</a><br>
-                <a href="#">Products</a><br>
-                <a href="#">Contact</a><br>
-            </div>
-            <div class="CONTACT"><h3>CONTACT</h3>
-                <div class="Phone">
-                    <img src="./images/phoneW.png" alt=""><small>(+92) 333 4374264</small>
-                </div>
-                <div class="location">
-                    <img src="./images/locationW.png" alt=""><small>Office No. 12, 1st Floor,Ahmad <br>Arcade Civic Center, Mustafa Town<br>Lahore-Punjab-Pakistan</small>
-                </div>
-            </div>
-            <div class="socials"><h3>Socials</h3>
-                <div class="socialsimgcontainer">
-                    <img src="./images/whatsappW.png" alt="whatsapp white vector logo">
-                    <img src="./images/facebookW.png" alt="facebook white vector logo">
-                    <img src="./images/linkedinW.png" alt="linkedin white vector logo">
-                    <img class="mail" src="./images/mailW.png" alt="mail white vector logo">
-                </div>
-            </div>
-        </div>    
-        <div class="footercontainer2"><hr class="hrline">
-            <H2>TEXAXIS (SMC-PRIVATE) LIMITED</H2>
+        <div class="aboutus-image">
+            <img src="./images/aboutus.jpg" alt="About TEXAXIS - Textile Industry" loading="lazy">
         </div>
-        <div class="company">
-            <div class="companycontainer"><p>© 2025 TEXAXIS (SMC-PRIVATE) LIMITED. All Rights Reserved. | Kimsol.co </p></div>
+    </section>
+
+    <!-- Services/Features Section -->
+    <section class="features">
+        <h2 class="section-title">Why Choose Us</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon" aria-hidden="true">🏭</div>
+                <h3>Industry Expertise</h3>
+                <p>18+ years of experience in textile processing and chemical supply</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon" aria-hidden="true">✓</div>
+                <h3>Quality Products</h3>
+                <p>High-quality textile processing chemicals and enzymes</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon" aria-hidden="true">📍</div>
+                <h3>Nationwide Coverage</h3>
+                <p>Offices in Lahore, Faisalabad, and Karachi</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon" aria-hidden="true">🤝</div>
+                <h3>Trusted Partners</h3>
+                <p>Collaborating with leading international suppliers</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-main">
+            <!-- Company Branding Column -->
+            <div class="footer-column footer-brand">
+                <div class="footer-logo-container">
+                    <img src="./images/texaxis.png" alt="TEXAXIS Company Logo" class="footer-logo">
+                </div>
+                <h3 class="footer-company-name">TEXAXIS (SMC-PRIVATE) LIMITED</h3>
+                <p class="footer-description">Leading supplier of premium textile processing chemicals and industrial enzymes across Pakistan.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
+                        <img src="./images/whatsappW.png" alt="WhatsApp">
+                    </a>
+                    <a href="#" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                        <img src="./images/facebookW.png" alt="Facebook">
+                    </a>
+                    <a href="#" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                        <img src="./images/linkedinW.png" alt="LinkedIn">
+                    </a>
+                    <a href="mailto:info@texaxis.com" aria-label="Email">
+                        <img src="./images/mailW.png" alt="Email">
+                    </a>
+                </div>
+            </div>
+
+            <!-- Quick Links Column -->
+            <div class="footer-column footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <h3 class="footer-subheading">Our Products</h3>
+                <ul>
+                    <li><a href="products.html">Textile Chemicals</a></li>
+                    <li><a href="products.html">Industrial Enzymes</a></li>
+                    <li><a href="products.html">Processing Auxiliaries</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact & Map Column -->
+            <div class="footer-column footer-contact">
+                <h3>Contact Us</h3>
+                <div class="footer-contact-info">
+                    <div class="contact-item">
+                        <img src="./images/phoneW.png" alt="Phone">
+                        <a href="tel:+923334374264">(+92) 333 4374264</a>
+                    </div>
+                    <div class="contact-item">
+                        <img src="./images/locationW.png" alt="Location">
+                        <span>Office No. 12, 1st Floor, Ahmad Arcade Civic Center, Mustafa Town, Lahore, Pakistan</span>
+                    </div>
+                </div>
+                <div class="footer-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3402.0842679283847!2d74.27769387543947!3d31.48860074880707!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391903f4a3f3f3f3%3A0x3f3f3f3f3f3f3f3f!2sAhmad%20Arcade%20Civic%20Center%2C%20Mustafa%20Town%2C%20Lahore!5e0!3m2!1sen!2spk!4v1234567890123!5m2!1sen!2spk" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 TEXAXIS (SMC-PRIVATE) LIMITED. All Rights Reserved. | Powered by Kimsol.co</p>
         </div>
     </footer>
+
+    <script src="./scripts/script.js"></script>
+</body>
 </html>
