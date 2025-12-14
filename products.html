@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <meta name="description" content="Explore TEXAXIS product range - High-quality textile processing chemicals, enzymes, and auxiliaries for the textile industry.">
     <title>Products - TEXAXIS | Textile Processing Chemicals</title>
     <link rel="stylesheet" href="./styles/products.css">
@@ -31,8 +31,22 @@
         <hr class="headerline">
     </header>
 
+    <!-- Hero Section -->
+    <section class="page-hero products-hero">
+        <div class="hero-bg">
+            <img src="./images/products-hero.jpg" alt="TEXAXIS Products - Textile Chemicals" loading="eager">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-content-wrapper">
+                <h1 class="hero-title">Our Products</h1>
+                <p class="hero-subtitle">Premium Textile Processing Chemicals & Enzymes</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Page Header -->
-    <section class="page-header">
+    <section class="page-header" style="display:none;">
         <div class="header-content">
             <h1>Our Products</h1>
             <p>Premium textile processing solutions for every stage of production</p>
@@ -105,21 +119,33 @@
     </section>
 
     <!-- Partners Section -->
-    <section class="partners-section">
-        <div class="container">
-            <h2 class="section-title">Our Partner Brands</h2>
-            <p class="partners-intro">We collaborate with leading international manufacturers to bring you the best textile chemicals and enzymes.</p>
-            <div class="partners-logos">
-                <a href="https://alfakimya.com/en/home/" target="_blank" rel="noopener noreferrer">
-                    <img src="./images/alfakimya.png" alt="Alfa Kimya">
-                </a>
-                <a href="https://lonct-enzyme.com/" target="_blank" rel="noopener noreferrer">
-                    <img src="./images/lonct.png" alt="Lonct Enzyme">
-                </a>
-                <a href="#" target="_blank" rel="noopener noreferrer">
-                    <img src="./images/ansen.png" alt="Ansen">
-                </a>
-            </div>
+    <section class="partners">
+        <h2 class="section-title">Our Trusted Partners</h2>
+        <div class="partnerscontainer">
+            <a href="https://alfakimya.com/en/home/" target="_blank" rel="noopener noreferrer" class="partner-link" aria-label="Visit Alfa Kimya website">
+                <div class="alfakimya partner-card">
+                    <img src="./images/alfakimya.png" alt="Alfa Kimya - Partner Logo" loading="lazy">
+                    <p class="partner-name">Alfa Kimya</p>
+                </div>
+            </a>
+            <a href="https://lonct-enzyme.com/" target="_blank" rel="noopener noreferrer" class="partner-link" aria-label="Visit Lonct Enzyme website">
+                <div class="lonct partner-card">
+                    <img src="./images/lonct.png" alt="Lonct Enzyme - Partner Logo" loading="lazy">
+                    <p class="partner-name">Lonct Enzyme</p>
+                </div>
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer" class="partner-link" aria-label="Visit Ansen website">
+                <div class="ansen partner-card">
+                    <img src="./images/ansen.png" alt="Ansen - Partner Logo" loading="lazy">
+                    <p class="partner-name">Ansen</p>
+                </div>
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer" class="partner-link" aria-label="Visit Texpert website">
+                <div class="texpert partner-card">
+                    <img src="./images/texpert.png" alt="Texpert - Partner Logo" loading="lazy">
+                    <p class="partner-name">Texpert</p>
+                </div>
+            </a>
         </div>
     </section>
 
