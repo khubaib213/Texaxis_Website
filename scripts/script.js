@@ -16,6 +16,15 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Header Scroll Effect
     initializeHeaderScroll();
+    
+    // Scroll Animations
+    initializeScrollAnimations();
+    
+    // Back to Top Button
+    initializeBackToTop();
+    
+    // Lazy Load Images
+    initializeLazyLoading();
 });
 
 // ========================================
@@ -250,21 +259,102 @@ function initializeScrollAnimations() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('animate-in');
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
                 observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
     
     // Observe elements with animation class
-    const animatedElements = document.querySelectorAll('.feature-card, .product-card, .about-card');
-    animatedElements.forEach(element => {
+    const animatedElements = document.querySelectorAll('.feature-card, .product-card, .about-card, .partner-card');
+    animatedElements.forEach((element, index) => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(30px)';
+        element.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
         observer.observe(element);
     });
 }
 
-// Initialize scroll animations if needed
-// Uncomment the line below to enable
-// initializeScrollAnimations();
+// ========================================
+// Back to Top Button
+// ========================================
+function initializeBackToTop() {
+    // Create back to top button
+    const backToTop = document.createElement('button');
+    backToTop.innerHTML = '<i class="fas fa-arrow-up"></i>';
+    backToTop.className = 'back-to-top';
+    backToTop.setAttribute('aria-label', 'Back to top');
+    backToTop.style.cssText = `
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: #0052cc;
+        color: white;
+        border: none;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        z-index: 1000;
+        font-size: 18px;
+    `;
+    
+    document.body.appendChild(backToTop);
+    
+    // Show/hide based on scroll
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            backToTop.style.opacity = '1';
+            backToTop.style.visibility = 'visible';
+        } else {
+            backToTop.style.opacity = '0';
+            backToTop.style.visibility = 'hidden';
+        }
+    });
+    
+    // Scroll to top on click
+    backToTop.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+    // Simple hover effect
+    backToTop.addEventListener('mouseenter', function() {
+        this.style.opacity = '0.85';
+    });
+    
+    backToTop.addEventListener('mouseleave', function() {
+        this.style.opacity = '1';
+    });
+}
+
+// ========================================
+// Lazy Loading Images
+// ========================================
+function initializeLazyLoading() {
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src || img.src;
+                    img.classList.add('loaded');
+                    observer.unobserve(img);
+                }
+            });
+        });
+        
+        images.forEach(img => imageObserver.observe(img));
+    }
+}
 
 
 // ========================================

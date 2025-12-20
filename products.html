@@ -5,24 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <meta name="description" content="Explore TEXAXIS product range - High-quality textile processing chemicals, enzymes, and auxiliaries for the textile industry.">
     <title>Products - TEXAXIS | Textile Processing Chemicals</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./styles/products.css">
 </head>
 <body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-container">
+            <div class="top-bar-contact">
+                <span><i class="fas fa-phone-alt"></i> +92 333 4374264</span>
+                <span><i class="fas fa-envelope"></i> info@texaxis.com</span>
+            </div>
+            <div class="top-bar-social">
+                <a href="https://wa.me/923334374264" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
     <!-- Header Section -->
     <header class="header">
         <div class="headercontainer">
             <div class="logocontainer">
-                <a href="index.html">
-                    <img src="./images/texaxis.png" alt="Texaxis Logo">
+                <a href="index.html" aria-label="TEXAXIS Home">
+                    <img src="./images/texaxis.png" alt="TEXAXIS Company Logo">
                 </a>
             </div>
-            <nav class="navbar">
+            <nav class="navbar" aria-label="Main navigation">
                 <a class="home" href="index.html">HOME</a>
                 <a class="aboutus" href="aboutus.html">ABOUT US</a>
                 <a class="products active" href="products.html">PRODUCTS</a>
                 <a class="contact" href="contact.html">CONTACT</a>
             </nav>
-            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -37,8 +52,12 @@
             <img src="./images/products-hero.jpg" alt="TEXAXIS Products - Textile Chemicals" loading="eager">
         </div>
         <div class="hero-overlay"></div>
+        <div class="honeycomb-pattern page-honeycomb"></div>
         <div class="hero-content">
             <div class="hero-content-wrapper">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a> <span>|</span> <span class="current">Products</span>
+                </nav>
                 <h1 class="hero-title">Our Products</h1>
                 <p class="hero-subtitle">Premium Textile Processing Chemicals & Enzymes</p>
             </div>
@@ -58,61 +77,217 @@
         <div class="container">
             <div class="section-intro">
                 <h3 class="company-subtitle">TEXAXIS (SMC-PRIVATE) LIMITED</h3>
-                <h2 class="section-title">Quality Products for Textile Excellence</h2>
-                <p>We supply high-quality textile processing chemicals and enzymes that meet international standards and enhance your production efficiency.</p>
+                <h2 class="section-title">Products</h2>
+                <p>High-quality textile processing chemicals and enzymes.</p>
             </div>
 
             <div class="products-grid">
                 <div class="product-card">
-                    <div class="product-icon">🧪</div>
-                    <h3>Textile Processing Chemicals</h3>
-                    <p>Comprehensive range of chemicals for dyeing, printing, finishing, and wet processing applications.</p>
-                    <ul class="product-features">
-                        <li>✓ Dyeing Auxiliaries</li>
-                        <li>✓ Printing Chemicals</li>
-                        <li>✓ Finishing Agents</li>
-                        <li>✓ Pretreatment Chemicals</li>
-                    </ul>
-                    <a href="contact.html" class="btn btn-outline">Request Info</a>
+                    <div class="product-header">
+                        <h3>Textile Enzymes</h3>
+                        <p class="product-summary">High-performance bio-solutions for textile processing excellence.</p>
+                    </div>
+                    <div class="product-details">
+                        <p>High-performance enzymes for bio-polishing, desizing, and finishing applications.</p>
+                        <ul class="product-features">
+                            <li>• ALPHA AMYLASE
+                                <span class="product-desc">Efficient starch removal for desizing applications</span>
+                            </li>
+                            <li>• ACID CELLULASE
+                                <span class="product-desc">Bio-polishing for smooth fabric finish</span>
+                            </li>
+                            <li>• NEUTRA CELLULASE
+                                <span class="product-desc">Gentle fiber treatment for delicate fabrics</span>
+                            </li>
+                            <li>• PECTINASE
+                                <span class="product-desc">Natural fiber scouring and degumming</span>
+                            </li>
+                            <li>• CATALASE (Per-oxide Killer Enzyme)
+                                <span class="product-desc">Effective hydrogen peroxide neutralization</span>
+                            </li>
+                            <li>• SOLID NEUTRAL CELLULASE
+                                <span class="product-desc">Concentrated enzyme for bio-finishing</span>
+                            </li>
+                            <li>• STONE WASH ENZYME
+                                <span class="product-desc">Denim washing and distressing effects</span>
+                            </li>
+                            <li>• SPRINKLE ENZYME (Stone free)
+                                <span class="product-desc">Eco-friendly alternative to stone washing</span>
+                            </li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-outline">Request Info</a>
+                    </div>
                 </div>
 
                 <div class="product-card">
-                    <div class="product-icon">⚗️</div>
-                    <h3>Industrial Enzymes</h3>
-                    <p>Advanced enzyme solutions for bio-polishing, desizing, and other textile processing applications.</p>
-                    <ul class="product-features">
-                        <li>✓ Cellulase Enzymes</li>
-                        <li>✓ Amylase Enzymes</li>
-                        <li>✓ Catalase Enzymes</li>
-                        <li>✓ Pectinase Enzymes</li>
-                    </ul>
-                    <a href="contact.html" class="btn btn-outline">Request Info</a>
+                    <div class="product-header">
+                        <h3>Pretreatment</h3>
+                        <p class="product-summary">Essential chemicals for optimal fabric preparation and processing.</p>
+                    </div>
+                    <div class="product-details">
+                        <p>Essential chemicals for scouring, bleaching, and fabric preparation processes.</p>
+                        <ul class="product-features">
+                            <li>• Desizers
+                                <span class="product-desc">Efficient removal of sizing materials from fabrics</span>
+                            </li>
+                            <li>• Detergents
+                                <span class="product-desc">Remove impurities and natural oils from fabrics</span>
+                            </li>
+                            <li>• Wetting Agents
+                                <span class="product-desc">Enhance fabric penetration and absorption</span>
+                            </li>
+                            <li>• Stabilizers, Catalysts, and Multifunctional Agents for Bleaching
+                                <span class="product-desc">Regulate oxidizing agents for high degree of whiteness</span>
+                            </li>
+                             <li>• Anti-Foaming Agents
+                                <span class="product-desc">Reduce foam buildup on bath surface</span>
+                            </li>
+                            <li>• Crackmark Inhibitors
+                                <span class="product-desc">Reduce fiber-fiber and fiber-machine friction</span>
+                            </li>
+                            <li>• Sequestering Agents
+                                <span class="product-desc">Chelate iron, calcium, and magnesium ions</span>
+                            </li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-outline">Request Info</a>
+                    </div>
                 </div>
 
                 <div class="product-card">
-                    <div class="product-icon">🔬</div>
-                    <h3>Processing Auxiliaries</h3>
-                    <p>Essential auxiliaries that optimize processing efficiency and fabric quality in textile manufacturing.</p>
-                    <ul class="product-features">
-                        <li>✓ Wetting Agents</li>
-                        <li>✓ Sequestering Agents</li>
-                        <li>✓ Levelling Agents</li>
-                        <li>✓ Softeners & Oils</li>
-                    </ul>
-                    <a href="contact.html" class="btn btn-outline">Request Info</a>
+                    <div class="product-header">
+                        <h3>Dyeing</h3>
+                        <p class="product-summary">Complete solutions for superior color application and fastness.</p>
+                    </div>
+                    <div class="product-details">
+                        <p>Complete range of dyeing auxiliaries for optimal color fastness and uniformity.</p>
+                        <ul class="product-features">
+                            <li>• Levelling Agents for Reactive & Polyester
+                                <span class="product-desc">Ensure even dye distribution and color uniformity</span>
+                            </li>
+                            <li>• Anti-Migrating Agents
+                                <span class="product-desc">Prevent dye migration during processing</span>
+                            </li>
+                            <li>• Penetrating Agents
+                                <span class="product-desc">Improve dye penetration and fabric wetting</span>
+                            </li>
+                            <li>• Soaping Agents
+                                <span class="product-desc">Remove unfixed dyes for better fastness</span>
+                            </li>
+                            <li>• Fixing Agents for Reactive & Polyester
+                                <span class="product-desc">Enhance color fastness and durability</span>
+                            </li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-outline">Request Info</a>
+                    </div>
                 </div>
 
                 <div class="product-card">
-                    <div class="product-icon">💧</div>
-                    <h3>Specialty Solutions</h3>
-                    <p>Customized chemical solutions designed for specific textile processing requirements and challenges.</p>
-                    <ul class="product-features">
-                        <li>✓ Water Treatment</li>
-                        <li>✓ Eco-Friendly Solutions</li>
-                        <li>✓ Custom Formulations</li>
-                        <li>✓ Technical Support</li>
-                    </ul>
-                    <a href="contact.html" class="btn btn-outline">Request Info</a>
+                    <div class="product-header">
+                        <h3>Finishing</h3>
+                        <p class="product-summary">Advanced agents for enhanced fabric quality and feel.</p>
+                    </div>
+                    <div class="product-details">
+                        <p>Advanced finishing agents for softening, anti-wrinkle, and fabric enhancement.</p>
+                        <ul class="product-features">
+                            <li>• Wet Rubbing Improvers
+                                <span class="product-desc">Enhance wet crocking fastness</span>
+                            </li>
+                            <li>• Color Deepening Agents
+                                <span class="product-desc">Intensify color depth and vibrancy</span>
+                            </li>
+                            <li>• Micro Silicone Emulsion
+                                <span class="product-desc">Provide soft, smooth hand feel</span>
+                            </li>
+                            <li>• Macro Silicone Emulsion
+                                <span class="product-desc">Impart luxurious softness and drape</span>
+                            </li>
+                             <li>• Non-Ionic & Cationic Softening Paste
+                                <span class="product-desc">Versatile softening for various fabrics</span>
+                            </li>
+                             <li>• Polyethylene Softeners
+                                <span class="product-desc">Durable synthetic softening agents</span>
+                            </li>
+                            <li>• Antistatic and Hydrophilic Agents
+                                <span class="product-desc">Reduce static and improve moisture absorption</span>
+                            </li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-outline">Request Info</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-header">
+                        <h3>Printing</h3>
+                        <p class="product-summary">Specialized chemicals for vibrant and lasting textile prints.</p>
+                    </div>
+                    <div class="product-details">
+                        <p>Specialized chemicals for textile printing, binders, and thickeners.</p>
+                        <ul class="product-features">
+                            <li>• Print Binders
+                                <span class="product-desc">Secure pigments for lasting print quality</span>
+                            </li>
+                            <li>• Thickeners
+                                <span class="product-desc">Control print paste consistency and definition</span>
+                            </li>
+                            <li>• Printing Auxiliaries
+                                <span class="product-desc">Enhance print sharpness and color vibrancy</span>
+                            </li>
+                            <li>• Discharge Agents
+                                <span class="product-desc">Create unique color removal effects</span>
+                            </li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-outline">Request Info</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-header">
+                        <h3>Garment Washing & Laundry Washing</h3>
+                        <p class="product-summary">Professional-grade solutions for garment and laundry applications.</p>
+                    </div>
+                    <div class="product-details">
+                        <p>Professional solutions for garment washing, stone washing, and laundry applications.</p>
+                        <ul class="product-features">
+                            <li>• Stone Wash Enzymes
+                                <span class="product-desc">Achieve vintage denim looks and soft feel</span>
+                            </li>
+                            <li>• Garment Softeners
+                                <span class="product-desc">Impart soft touch to finished garments</span>
+                            </li>
+                            <li>• Detergents
+                                <span class="product-desc">Effective cleaning for industrial laundry</span>
+                            </li>
+                            <li>• Neutralizing Agents
+                                <span class="product-desc">Balance pH for optimal fabric care</span>
+                            </li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-outline">Request Info</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-header">
+                        <h3>Special Finishes</h3>
+                        <p class="product-summary">Innovative specialty treatments for enhanced fabric performance.</p>
+                    </div>
+                    <div class="product-details">
+                        <p>Innovative specialty finishes including water repellent, antimicrobial, and flame retardant.</p>
+                        <ul class="product-features">
+                            <li>• Water Repellent
+                                <span class="product-desc">Protect fabrics from moisture and stains</span>
+                            </li>
+                            <li>• Antimicrobial
+                                <span class="product-desc">Inhibit bacterial growth and odor</span>
+                            </li>
+                            <li>• Flame Retardant
+                                <span class="product-desc">Enhance fire safety and compliance</span>
+                            </li>
+                            <li>• UV Protection
+                                <span class="product-desc">Shield from harmful ultraviolet rays</span>
+                            </li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-outline">Request Info</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -149,6 +324,36 @@
         </div>
     </section>
 
+    <!-- Certifications Section -->
+    <section class="certifications-section">
+        <div class="container">
+            <h2 class="section-title">Our Certifications & Quality Standards</h2>
+            <p class="section-intro">Committed to delivering the highest quality products that meet international standards</p>
+            <div class="certifications-grid">
+                <div class="certification-card">
+                    <div class="cert-icon">🏆</div>
+                    <h3>ISO Certified</h3>
+                    <p>International quality management standards</p>
+                </div>
+                <div class="certification-card">
+                    <div class="cert-icon">🌱</div>
+                    <h3>Eco-Friendly</h3>
+                    <p>Environmentally conscious products</p>
+                </div>
+                <div class="certification-card">
+                    <div class="cert-icon">✅</div>
+                    <h3>Quality Assured</h3>
+                    <p>Rigorous testing and quality control</p>
+                </div>
+                <div class="certification-card">
+                    <div class="cert-icon">🔒</div>
+                    <h3>Safety Compliance</h3>
+                    <p>Meeting international safety standards</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
@@ -170,16 +375,16 @@
                 <p class="footer-description">Leading supplier of premium textile processing chemicals and industrial enzymes across Pakistan.</p>
                 <div class="footer-social">
                     <a href="#" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
-                        <img src="./images/whatsappW.png" alt="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
                     </a>
                     <a href="#" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
-                        <img src="./images/facebookW.png" alt="Facebook">
+                        <i class="fab fa-facebook-f"></i>
                     </a>
                     <a href="#" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
-                        <img src="./images/linkedinW.png" alt="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
                     </a>
                     <a href="mailto:info@texaxis.com" aria-label="Email">
-                        <img src="./images/mailW.png" alt="Email">
+                        <i class="fas fa-envelope"></i>
                     </a>
                 </div>
             </div>
@@ -206,11 +411,11 @@
                 <h3>Contact Us</h3>
                 <div class="footer-contact-info">
                     <div class="contact-item">
-                        <img src="./images/phoneW.png" alt="Phone">
+                        <i class="fas fa-phone-alt"></i>
                         <a href="tel:+923334374264">(+92) 333 4374264</a>
                     </div>
                     <div class="contact-item">
-                        <img src="./images/locationW.png" alt="Location">
+                        <i class="fas fa-map-marker-alt"></i>
                         <span>Office No. 12, 1st Floor, Ahmad Arcade Civic Center, Mustafa Town, Lahore, Pakistan</span>
                     </div>
                 </div>
@@ -225,6 +430,11 @@
             <p>&copy; 2025 TEXAXIS (SMC-PRIVATE) LIMITED. All Rights Reserved. | Powered by Kimsol.co</p>
         </div>
     </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/923334374264" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <script src="./scripts/script.js"></script>
 </body>

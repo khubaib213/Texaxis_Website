@@ -5,24 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <meta name="description" content="Contact TEXAXIS for textile processing chemicals and enzymes. Reach us in Lahore, Faisalabad, or Karachi.">
     <title>Contact Us - TEXAXIS | Get in Touch</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./styles/contact.css">
 </head>
 <body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-container">
+            <div class="top-bar-contact">
+                <span><i class="fas fa-phone-alt"></i> +92 333 4374264</span>
+                <span><i class="fas fa-envelope"></i> info@texaxis.com</span>
+            </div>
+            <div class="top-bar-social">
+                <a href="https://wa.me/923334374264" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
     <!-- Header Section -->
     <header class="header">
         <div class="headercontainer">
             <div class="logocontainer">
-                <a href="index.html">
-                    <img src="./images/texaxis.png" alt="Texaxis Logo">
+                <a href="index.html" aria-label="TEXAXIS Home">
+                    <img src="./images/texaxis.png" alt="TEXAXIS Company Logo">
                 </a>
             </div>
-            <nav class="navbar">
+            <nav class="navbar" aria-label="Main navigation">
                 <a class="home" href="index.html">HOME</a>
                 <a class="aboutus" href="aboutus.html">ABOUT US</a>
                 <a class="products" href="products.html">PRODUCTS</a>
                 <a class="contact active" href="contact.html">CONTACT</a>
             </nav>
-            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -195,16 +210,16 @@
                 <p class="footer-description">Leading supplier of premium textile processing chemicals and industrial enzymes across Pakistan.</p>
                 <div class="footer-social">
                     <a href="#" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
-                        <img src="./images/whatsappW.png" alt="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
                     </a>
                     <a href="#" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
-                        <img src="./images/facebookW.png" alt="Facebook">
+                        <i class="fab fa-facebook-f"></i>
                     </a>
                     <a href="#" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
-                        <img src="./images/linkedinW.png" alt="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
                     </a>
                     <a href="mailto:info@texaxis.com" aria-label="Email">
-                        <img src="./images/mailW.png" alt="Email">
+                        <i class="fas fa-envelope"></i>
                     </a>
                 </div>
             </div>
@@ -231,11 +246,11 @@
                 <h3>Contact Us</h3>
                 <div class="footer-contact-info">
                     <div class="contact-item">
-                        <img src="./images/phoneW.png" alt="Phone">
+                        <i class="fas fa-phone-alt"></i>
                         <a href="tel:+923334374264">(+92) 333 4374264</a>
                     </div>
                     <div class="contact-item">
-                        <img src="./images/locationW.png" alt="Location">
+                        <i class="fas fa-map-marker-alt"></i>
                         <span>Office No. 12, 1st Floor, Ahmad Arcade Civic Center, Mustafa Town, Lahore, Pakistan</span>
                     </div>
                 </div>
@@ -250,6 +265,11 @@
             <p>&copy; 2025 TEXAXIS (SMC-PRIVATE) LIMITED. All Rights Reserved. | Powered by Kimsol.co</p>
         </div>
     </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/923334374264" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <script src="./scripts/script.js"></script>
 </body>
