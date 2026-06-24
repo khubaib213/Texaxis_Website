@@ -1,0 +1,12 @@
+{
+  "name": "texaxis-website",
+  "private": true,
+  "scripts": {
+    "optimize-images": "node scripts/optimize-images.js",
+    "generate-favicon": "node scripts/generate-favicon.js",
+    "start": "npx --yes serve . -l 3000"
+  },
+  "devDependencies": {
+    "sharp": "^0.33.5"
+  }
+}

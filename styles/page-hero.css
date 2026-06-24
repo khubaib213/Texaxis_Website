@@ -1,0 +1,195 @@
+/* Inner-page hero banners — About, Products, Contact */
+
+.page-hero {
+    position: relative;
+    width: 100%;
+    height: 40vh;
+    min-height: 300px;
+    max-height: 400px;
+    overflow: hidden;
+}
+
+.page-hero .hero-bg {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.page-hero .hero-bg picture,
+.page-hero .hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.page-hero .hero-bg picture {
+    display: block;
+}
+
+.page-hero .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 61, 143, 0.78) 0%,
+        rgba(0, 82, 204, 0.52) 45%,
+        rgba(12, 31, 61, 0.72) 100%
+    );
+    z-index: 2;
+}
+
+.page-hero .hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--light-color);
+    z-index: 3;
+    width: 90%;
+    max-width: 900px;
+}
+
+.page-hero .hero-content-wrapper {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.page-hero .hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    line-height: 1.2;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.page-hero .hero-subtitle {
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.6;
+    opacity: 0.95;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 0.8s ease-out 0.2s;
+    animation-fill-mode: backwards;
+}
+
+/* Products page — left-aligned hero with breadcrumb */
+.products-hero .hero-content {
+    top: 50%;
+    left: 8%;
+    transform: translateY(-50%);
+    text-align: left;
+    color: var(--text-color);
+    width: 45%;
+    max-width: 600px;
+}
+
+.products-hero .hero-content-wrapper {
+    margin: 0;
+}
+
+.products-hero .hero-title,
+.products-hero .hero-subtitle {
+    color: var(--light-color);
+}
+
+.honeycomb-pattern {
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    background-image: url('../images/pattern.webp');
+    background-image: image-set(
+        url('../images/pattern.webp') type('image/webp'),
+        url('../images/pattern.png') type('image/png')
+    );
+    background-repeat: repeat;
+    background-size: 240px;
+    pointer-events: none;
+    opacity: 0.05;
+}
+
+.page-honeycomb {
+    right: 8%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    animation: floatPattern 6s ease-in-out infinite;
+}
+
+@keyframes floatPattern {
+    0%, 100% { transform: translateY(-50%) translateX(0); }
+    50% { transform: translateY(-50%) translateX(-20px); }
+}
+
+.breadcrumb {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 500;
+}
+
+.breadcrumb a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+    color: var(--light-color);
+}
+
+.breadcrumb span {
+    margin: 0 8px;
+}
+
+.breadcrumb .current {
+    color: var(--light-color);
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .page-hero {
+        height: 35vh;
+        min-height: 250px;
+    }
+
+    .page-hero .hero-title {
+        font-size: 2rem;
+    }
+
+    .page-hero .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .products-hero .hero-content {
+        left: 5%;
+        width: 90%;
+        max-width: none;
+    }
+
+    .honeycomb-pattern {
+        width: 350px;
+        right: -120px;
+        opacity: 0.4;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-hero {
+        height: 30vh;
+        min-height: 220px;
+    }
+
+    .page-hero .hero-title {
+        font-size: 1.6rem;
+    }
+
+    .page-hero .hero-subtitle {
+        font-size: 0.9rem;
+    }
+}

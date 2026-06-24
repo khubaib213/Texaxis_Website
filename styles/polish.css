@@ -1,0 +1,179 @@
+/* Shared UI — blue brand + complementary slate & sky accents */
+
+.top-bar-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.95);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.top-bar-link:hover {
+    color: #fff;
+}
+
+.icon-badge {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: var(--accent-soft);
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    transition: transform 0.35s ease, background 0.35s ease, color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.reveal-card:hover .icon-badge,
+.feature-card:hover .icon-badge,
+.about-card:hover .icon-badge,
+.certification-card:hover .icon-badge {
+    transform: translateY(-3px);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(0, 82, 204, 0.25);
+}
+
+/* Location cards — white surface with blue accent (About + Contact) */
+.location-card {
+    background: var(--surface-elevated);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--primary-color);
+    box-shadow: var(--shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.location-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-medium);
+    border-left-color: var(--accent-color);
+}
+
+.location-card h3 {
+    color: var(--primary-color);
+}
+
+.location-card p {
+    color: var(--text-light);
+    opacity: 1;
+}
+
+/* About page cards */
+.about-card {
+    background: var(--surface-muted);
+    border: 1px solid var(--border-accent);
+}
+
+.about-card:hover {
+    transform: translateY(-4px);
+    background: var(--surface-elevated);
+    border-color: rgba(0, 82, 204, 0.22);
+}
+
+/* Product cards */
+.product-card {
+    background: var(--surface-muted);
+    border: 1px solid var(--border-accent);
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    background: var(--surface-elevated);
+}
+
+/* Contact info cards */
+.info-card {
+    background: var(--surface-muted);
+    border: 1px solid var(--border-accent);
+}
+
+.info-card:hover {
+    transform: translateX(4px);
+    background: var(--surface-elevated);
+}
+
+/* Timeline — brand blue with sky accent on current marker */
+.timeline-item-current .timeline-marker {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+}
+
+.timeline-content h3 {
+    color: var(--primary-dark);
+}
+
+.timeline-year {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
+
+/* CTA bands — keep blue, deepen slightly */
+.cta-section {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+}
+
+/* Hero CTA buttons — match sitewide radius */
+.hero-buttons .btn {
+    border-radius: var(--border-radius);
+}
+
+.info-card .info-icon.icon-badge {
+    margin: 0 0 16px 0;
+}
+
+.reveal-card {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.65s ease, transform 0.65s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.reveal-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 480px) {
+    .top-bar-contact .top-bar-link:last-child {
+        display: none;
+    }
+}
+
+.reveal-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.features-grid .reveal-card:nth-child(2),
+.partnerscontainer .reveal-card:nth-child(2),
+.certifications-grid .reveal-card:nth-child(2) { transition-delay: 80ms; }
+
+.features-grid .reveal-card:nth-child(3),
+.partnerscontainer .reveal-card:nth-child(3),
+.certifications-grid .reveal-card:nth-child(3) { transition-delay: 160ms; }
+
+.features-grid .reveal-card:nth-child(4),
+.partnerscontainer .reveal-card:nth-child(4),
+.certifications-grid .reveal-card:nth-child(4) { transition-delay: 240ms; }
+
+.page-hero .hero-bg img {
+    animation: heroKenBurns 10s ease-out forwards;
+}
+
+@keyframes heroKenBurns {
+    from { transform: scale(1); }
+    to { transform: scale(1.06); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal-card,
+    .hero-slide img,
+    .hero-slide.active img,
+    .page-hero .hero-bg img {
+        animation: none !important;
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}

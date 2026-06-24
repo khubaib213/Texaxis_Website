@@ -36,8 +36,9 @@ function initializeMobileMenu() {
     
     if (mobileMenuToggle && navbar) {
         mobileMenuToggle.addEventListener('click', function() {
-            navbar.classList.toggle('active');
+            const isOpen = navbar.classList.toggle('active');
             this.classList.toggle('active');
+            this.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
             
             // Animate hamburger icon
             const spans = this.querySelectorAll('span');
@@ -60,6 +61,7 @@ function initializeMobileMenu() {
             if (!isClickInsideMenu && !isClickOnToggle && navbar.classList.contains('active')) {
                 navbar.classList.remove('active');
                 mobileMenuToggle.classList.remove('active');
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
                 
                 const spans = mobileMenuToggle.querySelectorAll('span');
                 spans[0].style.transform = 'none';
@@ -75,6 +77,7 @@ function initializeMobileMenu() {
                 if (navbar.classList.contains('active')) {
                     navbar.classList.remove('active');
                     mobileMenuToggle.classList.remove('active');
+                    mobileMenuToggle.setAttribute('aria-expanded', 'false');
                     
                     const spans = mobileMenuToggle.querySelectorAll('span');
                     spans[0].style.transform = 'none';
@@ -133,8 +136,26 @@ function initializeContactForm() {
             }
             
             if (isValid) {
-                // Form is valid - show success message
-                showFormMessage('success', 'Thank you for your message! We will get back to you soon.');
+                const company = document.getElementById('company').value.trim();
+                const subjectLabels = {
+                    'product-inquiry': 'Product Inquiry',
+                    'technical-support': 'Technical Support',
+                    'quotation': 'Request Quotation',
+                    'partnership': 'Partnership Opportunity',
+                    'other': 'Other',
+                };
+                const subjectLabel = subjectLabels[subject] || subject;
+                const body = [
+                    `Name: ${name}`,
+                    `Email: ${email}`,
+                    `Phone: ${phone}`,
+                    company ? `Company: ${company}` : '',
+                    '',
+                    message,
+                ].filter(Boolean).join('\n');
+
+                window.location.href = `mailto:info@texaxis.com?subject=${encodeURIComponent('TEXAXIS: ' + subjectLabel)}&body=${encodeURIComponent(body)}`;
+                showFormMessage('success', 'Your email app should open with your message ready to send. If it does not, email us directly at info@texaxis.com.');
                 contactForm.reset();
             } else {
                 // Show error message
@@ -251,27 +272,23 @@ function initializeHeaderScroll() {
 // ========================================
 function initializeScrollAnimations() {
     const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px',
     };
-    
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('animate-in');
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                entry.target.classList.add('is-visible');
                 observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
-    
-    // Observe elements with animation class
-    const animatedElements = document.querySelectorAll('.feature-card, .product-card, .about-card, .partner-card');
-    animatedElements.forEach((element, index) => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(30px)';
-        element.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+
+    document.querySelectorAll(
+        '.feature-card, .product-card, .about-card, .partner-link, .partner-item, .certification-card, .info-card, .location-card, .reveal-card'
+    ).forEach((element) => {
+        element.classList.add('reveal-card');
         observer.observe(element);
     });
 }
@@ -337,22 +354,56 @@ function initializeBackToTop() {
 // ========================================
 // Lazy Loading Images
 // ========================================
+function loadDeferredImage(img) {
+    if (!img || img.dataset.loaded === 'true') return;
+
+    const picture = img.closest('picture');
+    if (picture) {
+        picture.querySelectorAll('source[data-srcset]').forEach((source) => {
+            source.srcset = source.dataset.srcset;
+            source.removeAttribute('data-srcset');
+        });
+    }
+
+    const src = img.dataset.src;
+    if (src) {
+        img.src = src;
+        img.removeAttribute('data-src');
+    }
+
+    img.dataset.loaded = 'true';
+    img.classList.add('loaded');
+}
+
+function preloadImageSrc(src) {
+    if (!src) return;
+    const preload = new Image();
+    preload.src = src;
+}
+
 function initializeLazyLoading() {
-    const images = document.querySelectorAll('img[loading="lazy"]');
-    
+    const images = document.querySelectorAll('img[data-src], img[loading="lazy"]');
+
     if ('IntersectionObserver' in window) {
         const imageObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.dataset.src || img.src;
-                    img.classList.add('loaded');
-                    observer.unobserve(img);
+                    loadDeferredImage(entry.target);
+                    observer.unobserve(entry.target);
                 }
             });
+        }, { rootMargin: '200px 0px' });
+
+        images.forEach(img => {
+            if (img.closest('.hero-slide')) return;
+            imageObserver.observe(img);
         });
-        
-        images.forEach(img => imageObserver.observe(img));
+    } else {
+        images.forEach(img => {
+            if (!img.closest('.hero-slide')) {
+                loadDeferredImage(img);
+            }
+        });
     }
 }
 
@@ -363,25 +414,34 @@ function initializeLazyLoading() {
 function initializeHeroSlider() {
     const slides = document.querySelectorAll('.hero-slide');
     const indicators = document.querySelectorAll('.hero-indicators .indicator');
+    const prevBtn = document.querySelector('.hero-prev');
+    const nextBtn = document.querySelector('.hero-next');
     let currentSlide = 0;
     let slideInterval;
 
     if (slides.length === 0) return;
 
-    function showSlide(index) {
-        // Remove active class from all slides and indicators
-        slides.forEach(slide => slide.classList.remove('active'));
-        indicators.forEach(indicator => indicator.classList.remove('active'));
+    function restartSlideAnimation(slide) {
+        const img = slide?.querySelector('img');
+        if (!img) return;
+        img.style.animation = 'none';
+        void img.offsetWidth;
+        img.style.animation = '';
+    }
 
-        // Add active class to current slide and indicator
-        slides[index].classList.add('active');
-        if (indicators[index]) {
-            indicators[index].classList.add('active');
-        }
+    function showSlide(index) {
+        slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+        indicators.forEach((indicator, i) => indicator.classList.toggle('active', i === index));
+        restartSlideAnimation(slides[index]);
     }
 
     function nextSlide() {
         currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
         showSlide(currentSlide);
     }
 
@@ -393,24 +453,30 @@ function initializeHeroSlider() {
 
     function resetInterval() {
         clearInterval(slideInterval);
-        slideInterval = setInterval(nextSlide, 5000);
+        slideInterval = setInterval(nextSlide, 6000);
     }
 
-    // Auto-advance slides every 5 seconds
-    slideInterval = setInterval(nextSlide, 5000);
+    slideInterval = setInterval(nextSlide, 6000);
 
-    // Add click handlers to indicators
     indicators.forEach((indicator, index) => {
         indicator.addEventListener('click', () => goToSlide(index));
     });
 
-    // Pause on hover
+    prevBtn?.addEventListener('click', () => {
+        prevSlide();
+        resetInterval();
+    });
+
+    nextBtn?.addEventListener('click', () => {
+        nextSlide();
+        resetInterval();
+    });
+
     const heroSection = document.querySelector('.hero');
     if (heroSection) {
         heroSection.addEventListener('mouseenter', () => clearInterval(slideInterval));
         heroSection.addEventListener('mouseleave', resetInterval);
     }
 
-    // Initialize first slide
     showSlide(0);
 }
