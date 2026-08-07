@@ -1,131 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Prevent theme flash before CSS loads -->
-    <script>
-        (function () {
-            try {
-                var key = 'texaxis-theme';
-                var stored = localStorage.getItem(key);
-                var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-                document.documentElement.setAttribute('data-theme', theme);
-            } catch (e) {
-                document.documentElement.setAttribute('data-theme', 'light');
-            }
-        })();
-    </script>
+    <!-- include:theme-boot -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Contact TEXAXIS for textile processing chemicals and enzymes. Reach us in Lahore, Faisalabad, or Karachi.">
     <title>Contact Us - TEXAXIS | Get in Touch</title>
-    <!-- Open Graph / social share -->
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="TEXAXIS (SMC-PRIVATE) LIMITED">
-    <meta property="og:locale" content="en_PK">
-    <meta property="og:url" content="https://texaxis.com/contact.html">
-    <meta property="og:title" content="Contact Us - TEXAXIS | Get in Touch">
-    <meta property="og:description" content="Contact TEXAXIS for textile processing chemicals and enzymes. Reach us in Lahore, Faisalabad, or Karachi.">
-    <meta property="og:image" content="https://texaxis.com/images/og-image.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="TEXAXIS — Textile Processing Chemicals & Enzymes">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Contact Us - TEXAXIS | Get in Touch">
-    <meta name="twitter:description" content="Contact TEXAXIS for textile processing chemicals and enzymes. Reach us in Lahore, Faisalabad, or Karachi.">
-    <meta name="twitter:image" content="https://texaxis.com/images/og-image.jpg">
-    <link rel="canonical" href="https://texaxis.com/contact.html">
-    <link rel="apple-touch-icon" href="./images/apple-touch-icon.png">
-    <meta name="theme-color" content="#0052cc">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "@id": "https://texaxis.com/#organization",
-          "name": "TEXAXIS (SMC-PRIVATE) LIMITED",
-          "alternateName": "TEXAXIS",
-          "url": "https://texaxis.com/",
-          "logo": "https://texaxis.com/images/texaxis.png",
-          "image": "https://texaxis.com/images/og-image.jpg",
-          "description": "Supplier of textile processing chemicals and enzymes in Pakistan, with head office in Lahore and coverage in Faisalabad and Karachi.",
-          "email": "info@texaxis.com",
-          "telephone": "+92-333-4374264",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Office No. 12, 1st Floor, Ahmad Arcade Civic Center, Mustafa Town",
-            "addressLocality": "Lahore",
-            "addressRegion": "Punjab",
-            "addressCountry": "PK"
-          },
-          "areaServed": [
-            {
-              "@type": "City",
-              "name": "Lahore"
-            },
-            {
-              "@type": "City",
-              "name": "Faisalabad"
-            },
-            {
-              "@type": "City",
-              "name": "Karachi"
-            }
-          ],
-          "sameAs": [
-            "https://www.linkedin.com/company/texaxis-smc-private-limited/",
-            "https://wa.me/923334374264"
-          ],
-          "contactPoint": [
-            {
-              "@type": "ContactPoint",
-              "telephone": "+92-333-4374264",
-              "contactType": "sales",
-              "areaServed": "PK",
-              "availableLanguage": [
-                "en",
-                "ur"
-              ]
-            }
-          ]
-        },
-        {
-          "@type": "LocalBusiness",
-          "@id": "https://texaxis.com/#localbusiness",
-          "name": "TEXAXIS (SMC-PRIVATE) LIMITED",
-          "url": "https://texaxis.com/",
-          "image": "https://texaxis.com/images/og-image.jpg",
-          "telephone": "+92-333-4374264",
-          "email": "info@texaxis.com",
-          "parentOrganization": {
-            "@id": "https://texaxis.com/#organization"
-          },
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Office No. 12, 1st Floor, Ahmad Arcade Civic Center, Mustafa Town",
-            "addressLocality": "Lahore",
-            "addressRegion": "Punjab",
-            "addressCountry": "PK"
-          },
-          "openingHoursSpecification": [
-            {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": [
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-                "Saturday"
-              ],
-              "opens": "09:00",
-              "closes": "18:00"
-            }
-          ]
-        }
-      ]
-    }
-    </script>
+<!-- include:social-meta -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -145,50 +26,9 @@
 </head>
 <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
-    <!-- Top Bar -->
-    <div class="top-bar">
-        <div class="top-bar-container">
-            <div class="top-bar-contact">
-                <a href="tel:+923334374264" class="top-bar-link"><i class="fas fa-phone-alt" aria-hidden="true"></i> +92 333 4374264</a>
-                <a href="mailto:info@texaxis.com" class="top-bar-link"><i class="fas fa-envelope" aria-hidden="true"></i> info@texaxis.com</a>
-            </div>
-            <div class="top-bar-social">
-                <a href="https://wa.me/923334374264" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                <a href="https://www.linkedin.com/company/texaxis-smc-private-limited/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-        </div>
-    </div>
+<!-- include:top-bar -->
 
-    <!-- Header Section -->
-    <header class="header">
-        <div class="headercontainer">
-            <div class="logocontainer">
-                <a href="index.html" aria-label="TEXAXIS Home">
-                <img src="./images/texaxis.png" alt="TEXAXIS Company Logo" width="180" height="60" decoding="async">
-                </a>
-            </div>
-            <nav class="navbar" id="primary-nav" aria-label="Main navigation">
-                <a class="home" href="index.html">HOME</a>
-                <a class="aboutus" href="aboutus.html">ABOUT US</a>
-                <a class="products" href="products.html">PRODUCTS</a>
-                <a class="contact active" href="contact.html">CONTACT</a>
-                <a class="nav-enquire" href="#contactForm">Enquire</a>
-            </nav>
-            <div class="header-actions">
-                <button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch to dark theme" title="Toggle color theme">
-                    <i class="fas fa-moon theme-toggle__moon" aria-hidden="true"></i>
-                    <i class="fas fa-sun theme-toggle__sun" aria-hidden="true"></i>
-                </button>
-                <a href="#contactForm" class="header-cta">Enquire</a>
-            </div>
-            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="primary-nav">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-        <hr class="headerline">
-    </header>
+<!-- include:header -->
 
 <main id="main-content">
     <!-- Hero Section -->
@@ -380,99 +220,8 @@
 
 </main>
 
-    <!-- Footer Section -->
-    <footer class="site-footer">
-        <div class="footer-main">
-            <div class="footer-column footer-brand">
-                <a href="index.html" class="footer-logo-link">
-                    <span class="footer-logo-box">
-                        <img src="./images/texaxis.png" alt="TEXAXIS" class="footer-logo" width="160" height="48" loading="lazy" decoding="async">
-                    </span>
-                </a>
-                <h3 class="footer-company-name">TEXAXIS (SMC-PRIVATE) LIMITED</h3>
-                <p class="footer-description">Textile processing chemicals and enzymes — supplied with technical support across Pakistan.</p>
-                <div class="footer-social">
-                    <a href="https://wa.me/923334374264" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/company/texaxis-smc-private-limited/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="mailto:info@texaxis.com" aria-label="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                </div>
-                <div class="footer-hours">
-                    <p><i class="fas fa-clock" aria-hidden="true"></i> Mon–Sat · 9:00 AM – 6:00 PM (PKT)</p>
-                </div>
-            </div>
+<!-- include:footer -->
 
-            <div class="footer-column footer-links">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="aboutus.html">About Us</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="contact.html#locations">Our Locations</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-column footer-products">
-                <h3>Our Products</h3>
-                <ul>
-                    <li><a href="products.html#enzymes">Textile Enzymes</a></li>
-                    <li><a href="products.html#pretreatment">Pretreatment</a></li>
-                    <li><a href="products.html#dyeing">Dyeing</a></li>
-                    <li><a href="products.html#finishing">Finishing</a></li>
-                    <li><a href="products.html#printing">Printing</a></li>
-                    <li><a href="products.html#special-finishes">Special Finishes</a></li>
-                    <li><a href="products.html#garment-washing">Garment Washing</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-column footer-contact">
-                <h3>Contact Us</h3>
-                <div class="footer-contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-phone-alt" aria-hidden="true"></i>
-                        <a href="tel:+923334374264">(+92) 333 4374264</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope" aria-hidden="true"></i>
-                        <a href="mailto:info@texaxis.com">info@texaxis.com</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-                        <span>Office No. 12, 1st Floor, Ahmad Arcade Civic Center, Mustafa Town, Lahore, Pakistan</span>
-                    </div>
-                </div>
-                <div class="footer-map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3402.084268928384!2d74.274103!3d31.49333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3919035134e7f159%3A0xa3914def662c165e!2sAhmad%20Arcade%2C%20Mustafa%20Town%2C%20Lahore%2C%20Pakistan!5e0!3m2!1sen!2spk!4v1719240000000!5m2!1sen!2spk" width="100%" height="160" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="TEXAXIS office location on Google Maps"></iframe>
-                </div>
-                <a class="footer-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Ahmad+Arcade+Civic+Center+Mustafa+Town+Lahore" target="_blank" rel="noopener noreferrer">
-                    Open in Google Maps <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
-                </a>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>&copy; 2026 TEXAXIS (SMC-PRIVATE) LIMITED. All Rights Reserved.</p>
-            <div class="footer-bottom__links">
-                <a href="tel:+923334374264">(+92) 333 4374264</a>
-                <span aria-hidden="true">·</span>
-                <a href="mailto:info@texaxis.com">info@texaxis.com</a>
-                <span aria-hidden="true">·</span>
-                <a href="https://wa.me/923334374264" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/923334374264" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <script src="./scripts/script.js" defer></script>
+<!-- include:scripts -->
 </body>
 </html>

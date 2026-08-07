@@ -51,13 +51,54 @@ function restoreIfNeeded(filePath, backupPath, before) {
 }
 
 async function writeWebp(inputPath, webpPath, maxWidth) {
-  let pipeline = sharp(inputPath).rotate();
-  const meta = await sharp(inputPath).metadata();
-  if (meta.width && maxWidth && meta.width > maxWidth) {
-    pipeline = pipeline.resize({ width: maxWidth, withoutEnlargement: true });
+  const sourceSize = fs.statSync(inputPath).size;
+  const qualities = [78, 70, 62, 54, 46];
+  let bestTemp = null;
+  let bestSize = Infinity;
+  let bestQ = null;
+
+  for (const quality of qualities) {
+    const tempPath = `${webpPath}.${quality}.tmp`;
+    let pipeline = sharp(inputPath).rotate();
+    const meta = await sharp(inputPath).metadata();
+    if (meta.width && maxWidth && meta.width > maxWidth) {
+      pipeline = pipeline.resize({ width: maxWidth, withoutEnlargement: true });
+    }
+
+    // Photos: lossy webp. Small PNGs: prefer near-lossless only if it wins.
+    if (sourceSize < 24 * 1024) {
+      await pipeline.webp({ quality, effort: 6, smartSubsample: true }).toFile(tempPath);
+    } else {
+      await pipeline.webp({ quality, effort: 6, smartSubsample: true }).toFile(tempPath);
+    }
+
+    const size = fs.statSync(tempPath).size;
+    if (size < sourceSize && size < bestSize) {
+      if (bestTemp && fs.existsSync(bestTemp)) fs.unlinkSync(bestTemp);
+      bestTemp = tempPath;
+      bestSize = size;
+      bestQ = quality;
+    } else {
+      fs.unlinkSync(tempPath);
+    }
   }
-  await pipeline.webp({ quality: 82 }).toFile(webpPath);
-  return fs.statSync(webpPath).size;
+
+  // Clean leftover temps
+  for (const quality of qualities) {
+    const tempPath = `${webpPath}.${quality}.tmp`;
+    if (tempPath !== bestTemp && fs.existsSync(tempPath)) fs.unlinkSync(tempPath);
+  }
+
+  if (!bestTemp) {
+    if (fs.existsSync(webpPath)) fs.unlinkSync(webpPath);
+    console.log(`    webp skipped (could not beat source ${formatKb(sourceSize)})`);
+    return null;
+  }
+
+  if (fs.existsSync(webpPath)) fs.unlinkSync(webpPath);
+  fs.renameSync(bestTemp, webpPath);
+  console.log(`    webp q${bestQ}: ${formatKb(bestSize)} (source ${formatKb(sourceSize)})`);
+  return bestSize;
 }
 
 async function optimizeJob(job) {
@@ -90,9 +131,9 @@ async function optimizeJob(job) {
     const after = restoreIfNeeded(jpegPath, backupPath, before);
     const webpSize = await writeWebp(jpegPath, path.join(IMAGES, `${base}.webp`), job.maxWidth);
     console.log(
-      `  ${job.file}: ${formatKb(before)} → ${formatKb(after)} + webp ${formatKb(webpSize)}`
+      `  ${job.file}: ${formatKb(before)} → ${formatKb(after)}${webpSize ? ` + webp ${formatKb(webpSize)}` : ' (no webp)'}`
     );
-    return { file: job.file, before, after, webpSize, output: `${base}.jpg` };
+    return { file: job.file, before, after, webpSize: webpSize || 0, output: `${base}.jpg` };
   }
 
   await pipeline
@@ -107,10 +148,10 @@ async function optimizeJob(job) {
   const after = restoreIfNeeded(input, backupPath, before);
   const webpSize = await writeWebp(input, path.join(IMAGES, `${base}.webp`), job.maxWidth);
   console.log(
-    `  ${job.file}: ${formatKb(before)} → ${formatKb(after)} + webp ${formatKb(webpSize)}`
+    `  ${job.file}: ${formatKb(before)} → ${formatKb(after)}${webpSize ? ` + webp ${formatKb(webpSize)}` : ' (no webp)'}`
   );
 
-  return { file: job.file, before, after, webpSize, output: job.file };
+  return { file: job.file, before, after, webpSize: webpSize || 0, output: job.file };
 }
 
 async function cleanupTempFiles() {

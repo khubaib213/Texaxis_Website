@@ -4,6 +4,9 @@
   "scripts": {
     "optimize-images": "node scripts/optimize-images.js",
     "generate-favicon": "node scripts/generate-favicon.js",
+    "generate-og": "node scripts/generate-og-image.js",
+    "build": "node scripts/build-pages.js",
+    "prestart": "node scripts/build-pages.js",
     "start": "npx --yes serve . -l 3000"
   },
   "devDependencies": {

@@ -1,0 +1,30 @@
+    <!-- Header Section -->
+    <header class="header">
+        <div class="headercontainer">
+            <div class="logocontainer">
+                <a href="index.html" aria-label="TEXAXIS Home">
+                <img src="./images/texaxis.png" alt="TEXAXIS Company Logo" width="180" height="60" decoding="async">
+                </a>
+            </div>
+            <nav class="navbar" id="primary-nav" aria-label="Main navigation">
+                <a class="home{{ACTIVE_HOME}}" href="index.html">HOME</a>
+                <a class="aboutus{{ACTIVE_ABOUT}}" href="aboutus.html">ABOUT US</a>
+                <a class="products{{ACTIVE_PRODUCTS}}" href="products.html">PRODUCTS</a>
+                <a class="contact{{ACTIVE_CONTACT}}" href="contact.html">CONTACT</a>
+                <a class="nav-enquire" href="{{HEADER_CTA_HREF}}">{{HEADER_CTA_LABEL}}</a>
+            </nav>
+            <div class="header-actions">
+                <button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch to dark theme" title="Toggle color theme">
+                    <i class="fas fa-moon theme-toggle__moon" aria-hidden="true"></i>
+                    <i class="fas fa-sun theme-toggle__sun" aria-hidden="true"></i>
+                </button>
+                <a href="{{HEADER_CTA_HREF}}" class="header-cta">{{HEADER_CTA_LABEL}}</a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="primary-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <hr class="headerline">
+    </header>

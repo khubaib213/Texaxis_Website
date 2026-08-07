@@ -3,9 +3,9 @@
 .page-hero {
     position: relative;
     width: 100%;
-    height: 40vh;
-    min-height: 300px;
-    max-height: 400px;
+    height: 46vh;
+    min-height: 340px;
+    max-height: 480px;
     overflow: hidden;
 }
 
@@ -33,12 +33,14 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        135deg,
-        rgba(0, 61, 143, 0.78) 0%,
-        rgba(0, 82, 204, 0.52) 45%,
-        rgba(12, 31, 61, 0.72) 100%
-    );
+    background:
+        linear-gradient(180deg, rgba(12, 31, 61, 0.35) 0%, rgba(12, 31, 61, 0.72) 100%),
+        linear-gradient(
+            115deg,
+            rgba(0, 42, 92, 0.72) 0%,
+            rgba(0, 61, 143, 0.4) 55%,
+            rgba(12, 31, 61, 0.65) 100%
+        );
     z-index: 2;
 }
 
@@ -48,34 +50,84 @@
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    color: var(--light-color);
-    z-index: 3;
+    color: #fff;
+    z-index: 4;
     width: 90%;
     max-width: 900px;
 }
 
 .page-hero .hero-content-wrapper {
-    max-width: 700px;
+    max-width: 720px;
     margin: 0 auto;
 }
 
-.page-hero .hero-title {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 15px;
-    line-height: 1.2;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+.page-hero .hero-brand {
+    font-family: var(--font-display);
+    font-size: clamp(1.05rem, 2vw, 1.15rem);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.88);
     animation: fadeInUp 0.8s ease-out;
 }
 
-.page-hero .hero-subtitle {
-    font-size: 1.2rem;
-    font-weight: 400;
-    line-height: 1.6;
-    opacity: 0.95;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
-    animation: fadeInUp 0.8s ease-out 0.2s;
+.page-hero .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.85rem, 4vw, 2.75rem);
+    font-weight: 650;
+    margin-bottom: 12px;
+    line-height: 1.18;
+    letter-spacing: -0.025em;
+    text-shadow: none;
+    animation: fadeInUp 0.8s ease-out 0.08s;
     animation-fill-mode: backwards;
+}
+
+.page-hero .hero-subtitle {
+    font-size: 1.05rem;
+    font-weight: 400;
+    line-height: 1.65;
+    opacity: 0.88;
+    max-width: 480px;
+    margin: 0 auto 22px;
+    text-shadow: none;
+    animation: fadeInUp 0.8s ease-out 0.18s;
+    animation-fill-mode: backwards;
+}
+
+.hero-banner-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    animation: fadeInUp 0.8s ease-out 0.28s;
+    animation-fill-mode: backwards;
+}
+
+.hero-banner-actions .btn {
+    min-width: 150px;
+}
+
+.hero-banner-actions .btn-primary {
+    background: #fff;
+    color: var(--primary-color);
+    border-color: #fff;
+}
+
+.hero-banner-actions .btn-primary:hover {
+    background: transparent;
+    color: #fff;
+}
+
+.hero-banner-actions .btn-secondary {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.85);
+}
+
+.hero-banner-actions .btn-secondary:hover {
+    background: #fff;
+    color: var(--primary-color);
 }
 
 /* Products page — left-aligned hero with breadcrumb */
@@ -84,9 +136,8 @@
     left: 8%;
     transform: translateY(-50%);
     text-align: left;
-    color: var(--text-color);
-    width: 45%;
-    max-width: 600px;
+    width: min(52%, 620px);
+    max-width: 620px;
 }
 
 .products-hero .hero-content-wrapper {
@@ -94,8 +145,18 @@
 }
 
 .products-hero .hero-title,
+.products-hero .hero-subtitle,
+.products-hero .hero-brand {
+    color: #fff;
+}
+
 .products-hero .hero-subtitle {
-    color: var(--light-color);
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.products-hero .hero-banner-actions {
+    justify-content: flex-start;
 }
 
 .honeycomb-pattern {
@@ -110,7 +171,7 @@
     background-repeat: repeat;
     background-size: 240px;
     pointer-events: none;
-    opacity: 0.05;
+    opacity: 0.08;
 }
 
 .page-honeycomb {
@@ -127,8 +188,8 @@
 }
 
 .breadcrumb {
-    font-size: 0.9rem;
-    margin-bottom: 15px;
+    font-size: 0.88rem;
+    margin-bottom: 14px;
     color: rgba(255, 255, 255, 0.85);
     font-weight: 500;
 }
@@ -140,56 +201,100 @@
 }
 
 .breadcrumb a:hover {
-    color: var(--light-color);
+    color: #fff;
 }
 
 .breadcrumb span {
     margin: 0 8px;
+    opacity: 0.7;
 }
 
 .breadcrumb .current {
-    color: var(--light-color);
+    color: #fff;
     font-weight: 600;
 }
 
 @media (max-width: 768px) {
     .page-hero {
-        height: 35vh;
-        min-height: 250px;
+        height: auto;
+        min-height: 300px;
+        max-height: none;
+        padding: 72px 0 64px;
+    }
+
+    .page-hero .hero-bg {
+        position: absolute;
+        inset: 0;
+    }
+
+    .page-hero .hero-content {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        width: 100%;
+        padding: 0 20px;
     }
 
     .page-hero .hero-title {
-        font-size: 2rem;
+        font-size: 1.85rem;
     }
 
     .page-hero .hero-subtitle {
         font-size: 1rem;
+        margin-bottom: 20px;
     }
 
     .products-hero .hero-content {
-        left: 5%;
-        width: 90%;
+        left: auto;
+        width: 100%;
         max-width: none;
+        text-align: center;
+    }
+
+    .products-hero .hero-subtitle {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .products-hero .hero-banner-actions {
+        justify-content: center;
+    }
+
+    .hero-banner-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-banner-actions .btn {
+        width: 100%;
+        text-align: center;
     }
 
     .honeycomb-pattern {
-        width: 350px;
-        right: -120px;
-        opacity: 0.4;
+        width: 280px;
+        right: -100px;
+        opacity: 0.2;
     }
 }
 
 @media (max-width: 480px) {
     .page-hero {
-        height: 30vh;
-        min-height: 220px;
+        min-height: 280px;
+        padding: 64px 0 56px;
     }
 
     .page-hero .hero-title {
-        font-size: 1.6rem;
+        font-size: 1.55rem;
     }
 
     .page-hero .hero-subtitle {
-        font-size: 0.9rem;
+        font-size: 0.92rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .page-honeycomb {
+        animation: none;
     }
 }

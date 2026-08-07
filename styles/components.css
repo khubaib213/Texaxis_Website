@@ -1,6 +1,6 @@
 /* Shared partner grid — loaded on all pages */
 .partners {
-    padding: 80px 20px;
+    padding: var(--section-pad-y, 80px) 20px;
     background-color: var(--surface-muted);
 }
 
@@ -21,12 +21,12 @@
 }
 
 .partner-card {
-    background: #fff;
+    background: var(--surface-elevated);
     padding: 28px 20px;
-    border-radius: 12px;
-    border: 1px solid rgba(0, 82, 204, 0.08);
-    box-shadow: 0 4px 20px rgba(0, 40, 100, 0.05);
-    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    box-shadow: none;
+    transition: border-color 0.25s ease, background 0.25s ease;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -37,9 +37,8 @@
 
 .partner-link:hover .partner-card,
 .partner-item:hover .partner-card {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-medium);
     border-color: var(--border-accent);
+    background: var(--surface-muted);
 }
 
 .partner-card picture {
@@ -54,14 +53,13 @@
     width: auto;
     max-width: 160px;
     object-fit: contain;
-    filter: grayscale(25%);
-    transition: filter 0.35s ease, transform 0.35s ease;
+    filter: grayscale(20%);
+    transition: filter 0.25s ease;
 }
 
 .partner-link:hover .partner-card img,
 .partner-item:hover .partner-card img {
     filter: grayscale(0%);
-    transform: scale(1.04);
 }
 
 .partner-name {
@@ -73,9 +71,35 @@
     transition: color 0.3s ease;
 }
 
+.partner-visit {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-light);
+    letter-spacing: 0.02em;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s ease;
+}
+
+.partner-visit i {
+    font-size: 0.65rem;
+    margin-left: 4px;
+}
+
 .partner-link:hover .partner-name,
 .partner-item:hover .partner-name {
     color: var(--primary-color);
+}
+
+.partner-link:hover .partner-visit {
+    opacity: 1;
+    transform: translateY(0);
+    color: var(--primary-color);
+}
+
+/* Product section anchors — clear sticky header */
+.product-card[id] {
+    scroll-margin-top: calc(var(--header-offset) + 24px);
 }
 
 @media (max-width: 992px) {
@@ -86,7 +110,7 @@
 
 .certifications-section {
     padding: 80px 20px;
-    background: #fff;
+    background: var(--light-color);
 }
 
 .certifications-section .section-intro {
@@ -107,15 +131,14 @@
 .certification-card {
     background: var(--surface-muted);
     border: 1px solid var(--border-accent);
-    border-radius: 12px;
+    border-radius: 8px;
     padding: 32px 24px;
     text-align: center;
-    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    transition: border-color 0.25s ease, background 0.25s ease;
 }
 
 .certification-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-medium);
+    background: var(--surface-elevated);
     border-color: rgba(0, 82, 204, 0.22);
 }
 

@@ -13,28 +13,41 @@
     color: #fff;
 }
 
+h1, h2, h3 {
+    font-family: var(--font-display);
+}
+
+.AboutUs--home .section-title,
+.AboutUs--home .company-subtitle {
+    text-align: left;
+}
+
+.AboutUs--home .section-title::after {
+    left: 0;
+    transform: none;
+}
+
 .icon-badge {
-    width: 64px;
-    height: 64px;
-    margin: 0 auto 20px;
+    width: 52px;
+    height: 52px;
+    margin: 0 auto 18px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 14px;
-    background: var(--accent-soft);
+    border-radius: 10px;
+    background: transparent;
+    border: 1px solid var(--border-accent);
     color: var(--primary-color);
-    font-size: 1.4rem;
-    transition: transform 0.35s ease, background 0.35s ease, color 0.35s ease, box-shadow 0.35s ease;
+    font-size: 1.2rem;
+    transition: border-color 0.25s ease, color 0.25s ease;
 }
 
 .reveal-card:hover .icon-badge,
 .feature-card:hover .icon-badge,
 .about-card:hover .icon-badge,
 .certification-card:hover .icon-badge {
-    transform: translateY(-3px);
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-    color: #fff;
-    box-shadow: 0 8px 20px rgba(0, 82, 204, 0.25);
+    border-color: rgba(0, 82, 204, 0.35);
+    color: var(--primary-dark);
 }
 
 /* Location cards — white surface with blue accent (About + Contact) */
@@ -48,9 +61,8 @@
 }
 
 .location-card:hover {
-    transform: translateY(-4px);
     box-shadow: var(--shadow-medium);
-    border-left-color: var(--accent-color);
+    border-left-color: var(--primary-dark);
 }
 
 .location-card h3 {
@@ -62,6 +74,20 @@
     opacity: 1;
 }
 
+.location-card .location-phone {
+    margin-top: 14px;
+}
+
+.location-card .location-phone a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.location-card .location-phone a:hover {
+    text-decoration: underline;
+}
+
 /* About page cards */
 .about-card {
     background: var(--surface-muted);
@@ -69,9 +95,8 @@
 }
 
 .about-card:hover {
-    transform: translateY(-4px);
     background: var(--surface-elevated);
-    border-color: rgba(0, 82, 204, 0.22);
+    border-color: rgba(0, 82, 204, 0.2);
 }
 
 /* Product cards */
@@ -81,8 +106,8 @@
 }
 
 .product-card:hover {
-    transform: translateY(-4px);
     background: var(--surface-elevated);
+    border-color: rgba(0, 82, 204, 0.18);
 }
 
 /* Contact info cards */
@@ -92,26 +117,25 @@
 }
 
 .info-card:hover {
-    transform: translateX(4px);
     background: var(--surface-elevated);
 }
 
-/* Timeline — brand blue with sky accent on current marker */
+/* Timeline — keep markers/years token-driven */
 .timeline-item-current .timeline-marker {
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    background: var(--primary-color);
 }
 
 .timeline-content h3 {
-    color: var(--primary-dark);
+    color: var(--heading-color);
 }
 
 .timeline-year {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: none;
+    color: var(--primary-color);
 }
 
-/* CTA bands — keep blue, deepen slightly */
 .cta-section {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    background: var(--primary-dark);
 }
 
 /* Hero CTA buttons — match sitewide radius */
@@ -157,23 +181,107 @@
 .partnerscontainer .reveal-card:nth-child(4),
 .certifications-grid .reveal-card:nth-child(4) { transition-delay: 240ms; }
 
-.page-hero .hero-bg img {
-    animation: heroKenBurns 10s ease-out forwards;
-}
-
-@keyframes heroKenBurns {
-    from { transform: scale(1); }
-    to { transform: scale(1.06); }
-}
-
 @media (prefers-reduced-motion: reduce) {
-    .reveal-card,
-    .hero-slide img,
-    .hero-slide.active img,
-    .page-hero .hero-bg img {
+    .reveal-card {
         animation: none !important;
         transition: none !important;
         opacity: 1 !important;
         transform: none !important;
     }
+}
+
+/* Final responsive overrides — keep brand-first hero usable on mobile */
+@media (max-width: 768px) {
+    .hero {
+        height: min(78vh, 640px);
+        min-height: 480px;
+        max-height: none;
+    }
+
+    .hero-brand {
+        font-size: clamp(2.2rem, 12vw, 3.2rem);
+        letter-spacing: 0.06em;
+    }
+
+    .hero-title {
+        font-size: 1.2rem !important;
+        font-weight: 500;
+    }
+
+    .hero-subtitle {
+        font-size: 0.95rem !important;
+        margin-bottom: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        height: auto;
+        min-height: 460px;
+        max-height: none;
+        padding-bottom: 72px;
+    }
+
+    .hero-brand {
+        font-size: 2.4rem;
+    }
+
+    .hero-title {
+        font-size: 1.1rem !important;
+    }
+}
+
+/* Dark theme polish for shared components */
+[data-theme="dark"] .feature-card,
+[data-theme="dark"] .about-card,
+[data-theme="dark"] .product-card,
+[data-theme="dark"] .certification-card,
+[data-theme="dark"] .info-card,
+[data-theme="dark"] .hq-panel,
+[data-theme="dark"] .regional-card {
+    background: var(--surface-elevated);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .feature-card h3,
+[data-theme="dark"] .about-card h3,
+[data-theme="dark"] .certification-card h3,
+[data-theme="dark"] .info-card h3,
+[data-theme="dark"] .product-header h3,
+[data-theme="dark"] .timeline-content h3 {
+    color: var(--heading-color);
+}
+
+[data-theme="dark"] .social-icons a {
+    background: var(--surface-muted);
+    color: var(--primary-color);
+}
+
+[data-theme="dark"] .social-icons a:hover {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+[data-theme="dark"] .icon-badge {
+    background: transparent;
+    border-color: var(--border-color);
+    color: var(--accent-color);
+}
+
+[data-theme="dark"] .btn-outline {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+[data-theme="dark"] .btn-primary {
+    color: #fff;
+}
+
+[data-theme="dark"] .textaboutus .section-title,
+[data-theme="dark"] .AboutUs .section-title {
+    color: var(--heading-color);
+}
+
+[data-theme="dark"] .partner-card img {
+    filter: grayscale(10%) brightness(1.05);
 }
